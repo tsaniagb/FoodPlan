@@ -9,7 +9,7 @@
 }
 
 header {
-    background-color: #f8f9fa; /* Adjust as needed */
+    background-color: #071B26; /* Adjust as needed */
     padding: 15px;
     border-bottom: 1px solid #ccc;
 }
@@ -18,11 +18,6 @@ header {
     font-size: 1.5em; /* Adjust as needed */
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .col-md-4 {
     flex: 0 0 32%; /* Adjust as needed */

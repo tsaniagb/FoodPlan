@@ -39,7 +39,7 @@
             // Displaying the food recommendation in the foodRecommendation section
             const foodRecommendationElement = document.getElementById("foodRecommendation");
             foodRecommendationElement.innerHTML = `
-            <p>Food Recommendation: ${data.detailedMealPlan}</p>
+            <p>Menu Recommendation: ${data.detailedMealPlan}</p>
         `;
         })
         .catch(error => {

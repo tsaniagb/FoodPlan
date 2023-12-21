@@ -1,91 +1,106 @@
 ﻿using BMICalculator;
 using GetUserData;
 
-public class Menu
+namespace MealPlanGenerator
 {
-    public static string GenerateMealPlan(UserData user)
+    public class Menu
     {
-        double bmi = BMI.CalculateBMI(user);
-
-        // Determine the BMI category
-        string bmiCategory = GetBMICategory(bmi);
-
-        // Generate a menu based on the BMI category
-        string breakfast = GenerateMealCategory("Breakfast", GetBreakfastVariations(bmiCategory));
-        string lunch = GenerateMealCategory("Lunch", GetLunchVariations(bmiCategory));
-        string dinner = GenerateMealCategory("Dinner", GetDinnerVariations(bmiCategory));
-
-        // Construct the complete meal plan
-        return $"{breakfast}\r\n{lunch}\r\n{dinner}";
-    }
-    public static string GetBMICategory(double bmi)
-    {
-        if (bmi < 18.5)
+        public static string GenerateMealPlan(UserData user)
         {
-            return "underweight";
+            double bmi = BMI.CalculateBMI(user);
+
+            // Determine the BMI category
+            string bmiCategory = GetBMICategory(bmi);
+
+            // Generate a menu based on the BMI category
+            string breakfast = GenerateBreakfast(bmiCategory);
+            string lunch = GenerateLunch(bmiCategory);
+            string dinner = GenerateDinner(bmiCategory);
+
+            // Construct the complete meal plan
+            return $"Breakfast:{Environment.NewLine}{breakfast}{Environment.NewLine}Lunch:{Environment.NewLine}{lunch}{Environment.NewLine}Dinner:{Environment.NewLine}{dinner}";
         }
-        else if (bmi < 25)
+
+        public static string GetBMICategory(double bmi)
         {
-            return "normal";
+            if (bmi < 18.5)
+            {
+                return "underweight";
+            }
+            else if (bmi < 25)
+            {
+                return "normal";
+            }
+            else
+            {
+                return "overweight";
+            }
         }
-        else
+
+        private static string GenerateBreakfast(string bmiCategory)
         {
-            return "overweight";
+            // Generate breakfast menu based on BMI category
+            switch (bmiCategory)
+            {
+                case "underweight":
+                    return "Variation 1: Whole grain toast with avocado" + Environment.NewLine +
+                           "Variation 2: Greek yogurt with fruits" + Environment.NewLine +
+                           "Variation 3: Oatmeal with nuts";
+                case "normal":
+                    return "Variation 1: Scrambled eggs with vegetables" + Environment.NewLine +
+                           "Variation 2: Whole grain cereal with milk" + Environment.NewLine +
+                           "Variation 3: Smoothie with protein";
+                case "overweight":
+                    return "Variation 1: Veggie omelette" + Environment.NewLine +
+                           "Variation 2: Quinoa bowl with vegetables" + Environment.NewLine +
+                           "Variation 3: Low-fat cottage cheese with berries";
+                default:
+                    return "Invalid BMI category";
+            }
+        }
+
+        private static string GenerateLunch(string bmiCategory)
+        {
+            // Generate lunch menu based on BMI category
+            switch (bmiCategory)
+            {
+                case "underweight":
+                    return "Variation 1: Grilled chicken salad" + Environment.NewLine +
+                           "Variation 2: Quinoa and vegetable stir-fry" + Environment.NewLine +
+                           "Variation 3: Lentil soup with whole grain bread";
+                case "normal":
+                    return "Variation 1: Grilled salmon with sweet potato" + Environment.NewLine +
+                           "Variation 2: Turkey and avocado wrap" + Environment.NewLine +
+                           "Variation 3: Chickpea salad with olive oil dressing";
+                case "overweight":
+                    return "Variation 1: Grilled vegetable and quinoa bowl" + Environment.NewLine +
+                           "Variation 2: Turkey and vegetable stir-fry" + Environment.NewLine +
+                           "Variation 3: Lentil and vegetable curry";
+                default:
+                    return "Invalid BMI category";
+            }
+        }
+
+        private static string GenerateDinner(string bmiCategory)
+        {
+            // Generate dinner menu based on BMI category
+            switch (bmiCategory)
+            {
+                case "underweight":
+                    return "Variation 1: Baked salmon with asparagus" + Environment.NewLine +
+                           "Variation 2: Spinach and feta-stuffed chicken breast" + Environment.NewLine +
+                           "Variation 3: Brown rice and black bean bowl";
+                case "normal":
+                    return "Variation 1: Quinoa-stuffed bell peppers" + Environment.NewLine +
+                           "Variation 2: Grilled shrimp with quinoa" + Environment.NewLine +
+                           "Variation 3: Stir-fried tofu with broccoli";
+                case "overweight":
+                    return "Variation 1: Grilled chicken with roasted vegetables" + Environment.NewLine +
+                           "Variation 2: Zucchini noodles with tomato sauce" + Environment.NewLine +
+                           "Variation 3: Cauliflower rice with mixed vegetables";
+                default:
+                    return "Invalid BMI category";
+            }
         }
     }
-
-    private static string GenerateMealCategory(string category, string[] variations)
-    {
-        return $"{category}:\r\n{string.Join("\r\n", variations.Select(v => $"- {v}"))}";
-    }
-
-    private static string[] GetBreakfastVariations(string bmiCategory)
-    {
-        // Generate breakfast menu based on BMI category
-        switch (bmiCategory)
-        {
-            case "underweight":
-                return new[] { "Whole grain toast with avocado", "Greek yogurt with fruits", "Oatmeal with nuts" };
-            case "normal":
-                return new[] { "Scrambled eggs with vegetables", "Whole grain cereal with milk", "Smoothie with protein" };
-            case "overweight":
-                return new[] { "Veggie omelette", "Quinoa bowl with vegetables", "Low-fat cottage cheese with berries" };
-            default:
-                return new[] { "Invalid BMI category" };
-        }
-    }
-
-    private static string[] GetLunchVariations(string bmiCategory)
-    {
-        // Generate lunch menu based on BMI category
-        switch (bmiCategory)
-        {
-            case "underweight":
-                return new[] { "Grilled chicken salad", "Quinoa and vegetable stir-fry", "Lentil soup with whole grain bread" };
-            case "normal":
-                return new[] { "Grilled salmon with sweet potato", "Turkey and avocado wrap", "Chickpea salad with olive oil dressing" };
-            case "overweight":
-                return new[] { "Grilled vegetable and quinoa bowl", "Turkey and vegetable stir-fry", "Lentil and vegetable curry" };
-            default:
-                return new[] { "Invalid BMI category" };
-        }
-    }
-
-    private static string[] GetDinnerVariations(string bmiCategory)
-    {
-        // Generate dinner menu based on BMI category
-        switch (bmiCategory)
-        {
-            case "underweight":
-                return new[] { "Baked salmon with asparagus", "Spinach and feta-stuffed chicken breast", "Brown rice and black bean bowl" };
-            case "normal":
-                return new[] { "Quinoa-stuffed bell peppers", "Grilled shrimp with quinoa", "Stir-fried tofu with broccoli" };
-            case "overweight":
-                return new[] { "Grilled chicken with roasted vegetables", "Zucchini noodles with tomato sauce", "Cauliflower rice with mixed vegetables" };
-            default:
-                return new[] { "Invalid BMI category" };
-        }
-    }
-
-    // ... (rest of the class remains unchanged)
 }

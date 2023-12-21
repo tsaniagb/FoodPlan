@@ -1,32 +1,134 @@
-﻿body {
-    font-family: Arial, sans-serif;
+﻿/* Reset some default styles and apply a box-sizing border-box */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+/* Apply a global font and background color */
+body {
+    font-family: Inter, sans-serif;
+    background-color: #071B26;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.home {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+/* Adjust the width of the program name section */
+    h1 {
+    font-size: 30px;
+    margin-top: 290px;
+    margin-left: 73px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+/* Add styling for the program logo as needed */
+#programLogo {
+    
+    position: absolute;
+    left: 50px; 
+    top: 169.33px; 
+    width: 270px; 
+    height: 147px; 
+}
+
+/* Container styles for centering and adding some padding */
 .container {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.logo-section {
-    display: flex;
-    align-items: center;
-    width: 30%;
+
+   
+/* User input section styles */
+.user-data-box {
+    width: 30%; /* Adjust the width as needed */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add margin for spacing */
 }
 
-.user-data-section,
-.bmi-result-section,
-.food-recommendation-section {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+/* Input field styles */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: Inter, sans-serif;
 }
 
-    .user-data-section input {
-        width: 100%;
-    }
-
-.bmi-result-section,
-.food-recommendation-section {
-    height: 100%;
-    overflow-y: auto;
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Inter, sans-serif;
 }
+
+button {
+    background-color: #7fcc53;
+    color: #F6EBEB;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+}
+
+/* Boxes for BMI result and food recommendation */
+.bmi-result-box,
+.food-recommendation-box {
+    width: 30%; /* Adjust the width as needed */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+
+/* User input container styles */
+.user-input-container {
+    /* Customize size and margin as needed */
+    width: 100%;
+    margin-top: -250px;
+    margin-left: 360px;
+}
+
+/* BMI result container styles */
+.bmi-result-container {
+    /* Customize size and margin as needed */
+    width: 80%;
+    margin-top: -380px;
+    margin-left: 850px;
+}
+
+/* Food recommendation container styles */
+.food-recommendation-container {
+    /* Customize size and margin as needed */
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 850px;
+}
+
+footer {
+    width: 100%;
+    margin-top: 70px;
+    margin-left: 20px;
+    color: #FFFFFF;
+}
+
+privacy {
+    width: 100%;
+    margin-top: 70px;
+    margin-left: 20px;
+    color: #FFFFFF;
+}
+

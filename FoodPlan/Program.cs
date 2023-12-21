@@ -1,5 +1,6 @@
 ﻿using GetUserData;
 using BMICalculator;
+using MealPlanGenerator;
 
 class Program
 {
@@ -39,3 +40,4 @@ class Program
         Console.WriteLine(detailedMealPlan);
     }
 }
+

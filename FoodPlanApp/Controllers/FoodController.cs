@@ -1,5 +1,6 @@
 ﻿using BMICalculator;
 using GetUserData;
+using MealPlanGenerator;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/[controller]")]
