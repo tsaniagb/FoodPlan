@@ -29,22 +29,28 @@
             const bmiCategory = data.bmiCategory;
             const detailedMealPlan = data.detailedMealPlan;
 
+            const roundedBMI = bmiResult.toFixed(2);
             // Displaying the BMI information in the result section
             const resultElement = document.getElementById("result");
             resultElement.innerHTML = `
-            <p>BMI Result: ${data.bmi}</p>
-            <p>BMI Category: ${data.bmiCategory}</p>
-        `;
+                <p>BMI Result: ${roundedBMI}</p>
+                <p>BMI Category: ${bmiCategory}</p>
+            `;
 
             // Displaying the food recommendation in the foodRecommendation section
             const foodRecommendationElement = document.getElementById("foodRecommendation");
+
+            // Replace line breaks with HTML line break tags
+            const formattedMealPlan = detailedMealPlan.replace(/\n/g, '<br>');
+
+            // Display the formatted meal plan
             foodRecommendationElement.innerHTML = `
-            <p>Menu Recommendation: ${data.detailedMealPlan}</p>
-        `;
+                <p>Menu Recommendation</p>
+                <div>${formattedMealPlan}</div>
+            `;
         })
         .catch(error => {
             console.error("Error fetching API:", error);
-            document.getElementById("result").innerHTML = "Error fetching API";
+            document.getElementById("result").innerHTML = `Error fetching API: ${error.message}`;
         });
-
 });
