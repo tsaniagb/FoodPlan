@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Plan</title>
+    <link rel="stylesheet" type="text/css" href="path/to/_Layout.cshtml.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <!-- Logo and program name on the left -->
+                <div class="col-md-4">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FoodPlan</a>
+                </div>
+                <!-- User data and BMI result boxes in the middle -->
+                <div class="col-md-4">
+                    <div class="user-data-box">
+                        <h2>User Data</h2>
+                        <form id="userDataForm">
+                            <!-- User input fields go here -->
+                            <label for="nameInput">Name:</label>
+                            <input type="text" id="nameInput" required>
+
+                            <label for="ageInput">Age:</label>
+                            <input type="number" id="ageInput" required>
+
+                            <label for="heightInput">Height (cm):</label>
+                            <input type="number" step="0.01" id="heightInput" required>
+
+                            <label for="weightInput">Weight (kg):</label>
+                            <input type="number" step="0.01" id="weightInput" required>
+
+                            <button type="button" id="submitBtn">Submit</button>
+                        </form>
+                    </div>
+                    <div class="bmi-result-box" id="result">
+                        <!-- Result content will be displayed here -->
+                    </div>
+                </div>
+                <!-- Food recommendation box on the right -->
+                <div class="col-md-4">
+                    <div class="food-recommendation-box" id="foodRecommendation">
+                        <!-- Food recommendation content will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <!-- Your existing footer code remains unchanged -->
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/foodPlan.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

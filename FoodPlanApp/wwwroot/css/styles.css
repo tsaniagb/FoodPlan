@@ -1,0 +1,32 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.user-data-section,
+.bmi-result-section,
+.food-recommendation-section {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+    .user-data-section input {
+        width: 100%;
+    }
+
+.bmi-result-section,
+.food-recommendation-section {
+    height: 100%;
+    overflow-y: auto;
+}
