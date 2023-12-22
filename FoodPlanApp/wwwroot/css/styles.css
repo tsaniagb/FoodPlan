@@ -9,7 +9,7 @@
 body {
     font-family: Inter, sans-serif;
     background-color: #071B26;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
 }
 
 .home {

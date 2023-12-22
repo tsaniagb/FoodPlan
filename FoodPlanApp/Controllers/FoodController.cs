@@ -10,7 +10,7 @@ public class FoodPlanController : ControllerBase
     [HttpPost]
     public ActionResult<FoodPlanResponse> GenerateFoodPlan([FromBody] UserData userData)
     {
-        // Call your existing logic from Program.cs
+        // Call existing logic from Program.cs
         UserData user = userData;
         double bmi = BMI.CalculateBMI(user);
         string bmiCategory = Menu.GetBMICategory(bmi);
